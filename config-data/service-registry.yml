@@ -1,44 +1,13 @@
-#Application configuration
+# puerto donde va a coreer el "service-regsitry"
 server:
-  port: 8092
-  # para incluir los "messajes" en las "exception" que se propagan en los REST
-  error:
-    include-message: always
+  port: 8099
 
-# To see H2 Console in Browser
-# http:// localhost:8091/h2-console
-# Enabling H2 Console
-spring:
-  h2:
-    console:
-      enabled: true
-      
-   # DB
-  datasource:
-    url: jdbc:h2:mem:customerDB;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    driver-class-name: org.h2.Driver
-    platform: h2
-    username: sa
-    password: 
-    
-  
-  # JAP - HIBERNATE
-
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    database-platform: org.hibernate.dialect.H2Dialect
-    properties:
-      hibernate:
-        show_sql: true
-        usq_sql_comments: false
-        format_sql: false
-
-   # Loggin
-logging:
-  pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
-    
-    
- 
+# definir configuraciones de Eureka
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
