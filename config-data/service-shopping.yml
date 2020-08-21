@@ -46,7 +46,7 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8099/eureka/
     
-# Habilitar Hystrix con Feign
+# Habilitar Hystrix con Feign hystrix.stream
 Feign:
   hystrix:
     enabled: true
@@ -54,4 +54,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: hystrix.stream
