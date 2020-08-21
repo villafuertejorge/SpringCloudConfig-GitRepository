@@ -50,12 +50,8 @@ eureka:
 Feign:
   hystrix:
     enabled: true
-# se habilita actuator
 management:
   endpoints:
     web:
       exposure:
         include: "*"
-    
-    
- 
